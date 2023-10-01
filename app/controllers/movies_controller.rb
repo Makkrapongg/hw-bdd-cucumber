@@ -27,6 +27,10 @@ class MoviesController < ApplicationController
     redirect_to movies_path
   end
 
+  def movie_params
+    params.require(:movie).permit(:title, :director, :release_date, :genre) # Adjust the permitted attributes as needed
+  end
+
   def edit
     @movie = Movie.find params[:id]
   end
